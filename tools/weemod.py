@@ -2,12 +2,14 @@
 """Read WeeMOD catalog and export a module's explicit allowlist. Python 3.10+."""
 import argparse
 import json
+import os
 from pathlib import Path
 import shutil
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / 'catalog' / 'index.json'
+SELECTION_MANIFEST = 'WEEMOD_SELECTION.json'
 
 
 def load_catalog():
@@ -37,11 +39,26 @@ def pack(module, output):
     if len(file_names) != len(set(file_names)):
         raise ValueError('Duplicate file names in module allowlist')
     resolved = [(f, safe_relative_file(f)) for f in file_names]
-    output.mkdir(parents=True, exist_ok=True)
+    reserved_key = os.path.normcase(SELECTION_MANIFEST).casefold()
+    seen_basenames = set()
+    planned = []
     for name, src in resolved:
-        dest = output / Path(name).name
+        basename = Path(name).name
+        key = os.path.normcase(basename).casefold()
+        if key == reserved_key:
+            raise ValueError(f'Destination filename collides with reserved manifest: {basename}')
+        if key in seen_basenames:
+            raise ValueError(f'Duplicate destination filename: {basename}')
+        seen_basenames.add(key)
+        planned.append((src, output / basename))
+    manifest_path = output / SELECTION_MANIFEST
+    if manifest_path.exists():
+        raise FileExistsError(f'Refusing to overwrite existing file: {manifest_path}')
+    for _, dest in planned:
         if dest.exists():
             raise FileExistsError(f'Refusing to overwrite existing file: {dest}')
+    output.mkdir(parents=True, exist_ok=True)
+    for src, dest in planned:
         shutil.copyfile(src, dest)
     info = {
         'module_id': module['id'],
@@ -52,7 +69,7 @@ def pack(module, output):
         'original_files': file_names,
         'note': 'Inspect before use; integrate and retest manually in the destination project.'
     }
-    (output / 'WEEMOD_SELECTION.json').write_text(json.dumps(info, indent=2) + '\n', encoding='utf-8')
+    manifest_path.write_text(json.dumps(info, indent=2) + '\n', encoding='utf-8')
     print(f"Exported {module['id']} to {output}")
 
 

@@ -25,7 +25,7 @@
         "A stronger framework-specific retry contract is needed"
       ],
       "dependencies": [],
-      "license": "MIT (verify LICENSE publication checklist)",
+      "license": "MIT",
       "documentation": "modules/async-retry/README.md",
       "files": [
         "modules/async-retry/retry.mjs",

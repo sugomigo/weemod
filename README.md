@@ -48,7 +48,7 @@ WeeMOD/
   docs/ROADMAP.md            # Milestones and evidence principles
   .github/workflows/ci.yml   # Automated tests on GitHub push/PR
   PUBLICATION_CHECKLIST.md   # Required checks before going public
-  LICENSE                   # MIT draft; fill owner before release
+  LICENSE                   # MIT License (Copyright (c) 2026 sugomigo)
 ```
 
 ## Current module
@@ -61,6 +61,6 @@ WeeMOD/
 
 Only code with verified publication rights may enter WeeMOD. Do not copy company/customer code, proprietary assets, credentials, private architecture or incompatible third-party code. External contributions need proper attribution and license review.
 
-The proposed license is MIT, **subject to completing `LICENSE` ownership information and the publication checklist**.
+Licensed under the [MIT License](LICENSE). Local pre-release checks are prepared; public GitHub release remains pending final publication verification in `PUBLICATION_CHECKLIST.md`.
 
 See [MODULE_STANDARD](docs/MODULE_STANDARD.md), [SECURITY](docs/SECURITY.md), and [ROADMAP](docs/ROADMAP.md).

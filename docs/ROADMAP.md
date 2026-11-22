@@ -1,10 +1,10 @@
 # WeeMOD roadmap / checkpoints
 
-## P0 — Public-safety gate (NOT PASSED)
-- [ ] Verify ownership and rights for all source and README content.
-- [ ] Replace `LICENSE` copyright placeholder and confirm license choice.
-- [ ] Run both test suites locally and review the publication checklist.
-- [ ] Create a GitHub repository privately and inspect staged files/history.
+## P0 — Public-safety gate (LOCAL PREP ONLY; NOT YET PUBLISHED)
+- [x] Owner declared publication rights for all 15 tracked source and README files.
+- [x] Replace `LICENSE` copyright placeholder with `sugomigo` and confirm MIT license choice.
+- [x] Run both test suites locally (7/7 Python unittest, 7/7 Node test) and review the local publication checklist.
+- [ ] Create a GitHub repository privately, verify GitHub Actions CI, and inspect staged files/history.
 
 ## P1 — Minimal useful OSS (prototype files prepared; public release NOT DONE)
 - [x] Machine-readable catalog schema (prototype)

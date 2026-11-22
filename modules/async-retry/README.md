@@ -25,4 +25,4 @@ Test:
 node --test modules/async-retry/retry.test.mjs
 ```
 
-Status: **experimental**, not a production-tested networking SDK. MIT license draft pending repository's copyright holder verification.
+Status: **experimental**, not a production-tested networking SDK. Licensed under the repository's [MIT License](../../LICENSE).

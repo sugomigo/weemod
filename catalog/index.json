@@ -1,0 +1,37 @@
+{
+  "schema_version": "0.1",
+  "modules": [
+    {
+      "id": "async-retry",
+      "name": "Async Retry (ESM)",
+      "summary": "Retry eligible transient failures from idempotent asynchronous operations with bounded backoff and abort support.",
+      "category": "reliability",
+      "runtime": "Node.js >=18 (ES modules)",
+      "language": "JavaScript",
+      "status": "experimental",
+      "tags": [
+        "reliability",
+        "async",
+        "backoff",
+        "network"
+      ],
+      "use_when": [
+        "Operation is idempotent or otherwise deduplicated",
+        "Transient errors justify bounded retries"
+      ],
+      "avoid_when": [
+        "Operation is non-idempotent without a deduplication key",
+        "Retrying may amplify an outage",
+        "A stronger framework-specific retry contract is needed"
+      ],
+      "dependencies": [],
+      "license": "MIT (verify LICENSE publication checklist)",
+      "documentation": "modules/async-retry/README.md",
+      "files": [
+        "modules/async-retry/retry.mjs",
+        "modules/async-retry/retry.test.mjs",
+        "modules/async-retry/README.md"
+      ]
+    }
+  ]
+}

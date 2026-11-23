@@ -61,6 +61,6 @@ WeeMOD/
 
 Only code with verified publication rights may enter WeeMOD. Do not copy company/customer code, proprietary assets, credentials, private architecture or incompatible third-party code. External contributions need proper attribution and license review.
 
-Licensed under the [MIT License](LICENSE). Local pre-release checks are prepared; public GitHub release remains pending final publication verification in `PUBLICATION_CHECKLIST.md`.
+Licensed under the [MIT License](LICENSE). Published release status and tagged artifacts are tracked on [GitHub Releases](https://github.com/sugomigo/weemod/releases); see `PUBLICATION_CHECKLIST.md` for the pre-publication review record.
 
 See [MODULE_STANDARD](docs/MODULE_STANDARD.md), [SECURITY](docs/SECURITY.md), and [ROADMAP](docs/ROADMAP.md).
